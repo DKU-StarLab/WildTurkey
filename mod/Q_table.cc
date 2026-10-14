@@ -109,6 +109,7 @@ namespace adgMod {
         return (max_q == -std::numeric_limits<double>::infinity()) ? 0.0 : max_q;
     }
 
+    // The get_max_future_q function retrieves the maximum Q-value for a given next state and a set of actions in the Q-table. It iterates through the provided actions, checking if each action has an associated Q-value in the specified next state. If a Q-value is found, it compares it to the current maximum and updates the maximum if necessary. If no Q-values are found for the next state, it returns 0.0 as a default value. This function is crucial for estimating potential future rewards based on specific actions, aiding in decision-making during reinforcement learning.
     double QTableManager::get_max_future_q(int next_state, const std::vector<double>& actions) const {
         double max_q = -std::numeric_limits<double>::infinity();
         for (const auto& action : actions) {
