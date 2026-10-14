@@ -38,6 +38,7 @@ namespace adgMod {
         return actions.empty() ? ErrorBoundActions() : actions;
     }
 
+    // QTableManager class implementation
     QTableManager::QTableManager() {
         error_bound_actions = ErrorBoundActionsForBlockSize(0);
         latency_ema.fill(0.0);
