@@ -98,6 +98,7 @@ namespace adgMod {
         return r_cost - size_penalty;
     }
 
+    // The get_max_future_q function retrieves the maximum Q-value for a given next state in the Q-table. It iterates through all the actions and their corresponding Q-values in the specified next state, keeping track of the highest Q-value found. If no Q-values are present for the next state, it returns 0.0 as a default value. This function is essential for estimating the future rewards in reinforcement learning scenarios, allowing the agent to make informed decisions based on potential future outcomes.
     double QTableManager::get_max_future_q(int next_state) const {
         double max_q = -std::numeric_limits<double>::infinity();
         for (const auto& pair : Q_table[next_state].q_values) {
