@@ -330,6 +330,7 @@ uint64_t AdaptiveLAC::Clamp(uint64_t value, uint64_t base) {
       std::max(min_bytes, std::min<double>(value, max_bytes)));
 }
 
+// The DefaultSizeForLevel function calculates the default size in bytes for a given level in the LAC algorithm. It takes an integer level as a parameter and calls the BaseSizeForLevel function, passing the level and the initial LAC degree for that level (obtained from InitialLacDegree). The function returns the calculated default size as a uint64_t value, representing the base size in bytes for the specified level based on its initial LAC degree. This function is used to establish a baseline size for each level when initializing or resetting the LAC algorithm.
 uint64_t AdaptiveLAC::DefaultSizeForLevel(int level) const {
   return BaseSizeForLevel(level, InitialLacDegree(level));
 }
