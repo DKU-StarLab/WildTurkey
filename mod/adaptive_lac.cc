@@ -322,6 +322,7 @@ int AdaptiveLAC::InitialLacDegree(int level) const {
   return ClampDegreeForLevel(level, base);
 }
 
+// The Clamp function ensures that a given value is within a specified range based on a base value. It takes a uint64_t value and a uint64_t base as parameters. The function calculates the minimum allowed value as half of the base and the maximum allowed value as four times the base. It then clamps the input value to be no less than the minimum and no greater than the maximum, returning the adjusted value. This function is used to enforce constraints on target byte sizes in the LAC algorithm, ensuring that they remain within reasonable bounds relative to a base size.
 uint64_t AdaptiveLAC::Clamp(uint64_t value, uint64_t base) {
   const double min_bytes = base * 0.5;
   const double max_bytes = base * 4.0;
