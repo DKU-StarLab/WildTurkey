@@ -316,6 +316,7 @@ int AdaptiveLAC::ClampDegreeForLevel(int level, int degree) {
   return std::max(min_degree, std::min(max_degree, degree));
 }
 
+// The InitialLacDegree function determines the initial LAC degree for a given level. It takes an integer level as a parameter and calculates a base degree value based on the global variable sst_size. If sst_size is greater than 0, it uses that value; otherwise, it defaults to 4. The function then calls ClampDegreeForLevel to ensure that the calculated base degree is within the valid range for the specified level, returning the clamped degree. This function is used to establish a starting point for the LAC degree when initializing the algorithm for a specific level.
 int AdaptiveLAC::InitialLacDegree(int level) const {
   const int base = sst_size > 0 ? sst_size : 4;
   return ClampDegreeForLevel(level, base);
