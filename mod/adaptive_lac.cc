@@ -309,6 +309,7 @@ double RewardWeightForLevel(int level) {
   return kLevelRewardWeights[level];
 }
 
+// The ClampDegreeForLevel function ensures that a given LAC degree is within the valid range for a specified level. It takes an integer level and an integer degree as parameters. The function retrieves the minimum and maximum allowed degrees for the specified level using MinDegreeForLevel and MaxDegreeForLevel, respectively. It then clamps the input degree to be no less than the minimum and no greater than the maximum, returning the adjusted degree. This function is used to enforce constraints on the LAC degree based on the level, ensuring that it remains within acceptable bounds during the algorithm's operation.
 int AdaptiveLAC::ClampDegreeForLevel(int level, int degree) {
   const int min_degree = MinDegreeForLevel(level);
   const int max_degree = MaxDegreeForLevel(level);
