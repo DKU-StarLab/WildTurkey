@@ -303,6 +303,7 @@ int AdaptiveLAC::MaxDegreeForLevel(int level) {
   return kMaxLacDegree;
 }
 
+// The RewardWeightForLevel function returns the reward weight for a given level in the LAC algorithm. It takes an integer level as a parameter and checks if the level is within the valid range (0 to kNumLevels - 1). If the level is out of bounds, it returns a default weight of 1.0. Otherwise, it retrieves the corresponding weight from the kLevelRewardWeights array, which defines specific weights for each level to bias the reward function in the Q-learning algorithm. This function is used to adjust the influence of rewards based on the level being processed, allowing for more effective learning and optimization of compaction strategies.
 double RewardWeightForLevel(int level) {
   if (level < 0 || level >= leveldb::config::kNumLevels) return 1.0;
   return kLevelRewardWeights[level];
