@@ -123,6 +123,7 @@ namespace adgMod {
         return (max_q == -std::numeric_limits<double>::infinity()) ? 0.0 : max_q;
     }
 
+    // The compute_q_value function calculates the updated Q-value for a given state-action pair based on the received reward and the maximum future Q-value from the next state. It retrieves the current Q-value for the specified state and action, computes the temporal difference (TD) target using the reward and discounted maximum future Q-value, and calculates the TD error. The TD error is clipped to a specified range to prevent extreme updates. Finally, it updates the Q-value using the learning rate and returns the new Q-value. This function is fundamental to the Q-learning algorithm, enabling the agent to learn optimal policies through iterative updates based on experiences.
     double QTableManager::compute_q_value(int state,
                                       double action_raw,
                                       double reward,
