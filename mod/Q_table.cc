@@ -54,6 +54,7 @@ namespace adgMod {
         return 1.0 / std::max(1, n);
     }
 
+    // The compute_reward function calculates the reward for a given action based on the load cost, prediction cost, correlation cost, and key count. It normalizes the costs using the minimum and maximum observed values and computes a cost-based reward. Additionally, it applies a size penalty based on the key count relative to the maximum observed key count. The final reward is the difference between the normalized cost reward and the size penalty, providing a balanced measure of performance for reinforcement learning in the Q-table.
     double QTableManager::compute_reward(
         double   action,
         double   load_cost,
