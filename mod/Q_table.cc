@@ -20,7 +20,7 @@ inline T clamp(const T& val, const T& low, const T& high)
 }
 
 namespace adgMod {
-
+    // 返回固定的 error_bound 动作集合
     const std::vector<double>& ErrorBoundActions() {
         static const std::vector<double> actions =
             {4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64};
