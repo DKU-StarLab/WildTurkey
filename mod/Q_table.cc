@@ -26,7 +26,7 @@ namespace adgMod {
             {4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64};
         return actions;
     }
-
+    // this function returns a filtered list of error_bound actions based on the block size.
     std::vector<double> ErrorBoundActionsForBlockSize(uint64_t block_size) {
         std::vector<double> actions;
         const double max_action = (block_size > 0 && block_size <= 4096) ? 44.0 : 64.0;
