@@ -335,6 +335,7 @@ uint64_t AdaptiveLAC::DefaultSizeForLevel(int level) const {
   return BaseSizeForLevel(level, InitialLacDegree(level));
 }
 
+// The GetTargetBytes function retrieves the target byte size for a specified level in the LAC algorithm. It takes an integer level and a fallback byte size as parameters. The function first locks a mutex to ensure thread-safe access to the internal state. It checks if the level is valid; if not, it returns the fallback bytes or the base size for level 0. If the level is valid, it retrieves the corresponding state and determines the LAC degree, either from the initialized state or by using the initial LAC degree. It calculates a base size and determines the target bytes, either from the initialized state or using the base size. Finally, it clamps the target bytes to ensure they are within reasonable bounds relative to the base size and returns the result.
 uint64_t AdaptiveLAC::GetTargetBytes(int level, uint64_t fallback_bytes) const {
   std::lock_guard<std::mutex> lg(mu_);
   if (level < 0 || level >= static_cast<int>(states_.size())) {
