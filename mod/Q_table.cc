@@ -47,6 +47,7 @@ namespace adgMod {
         latency_seen.fill(false);
     }
 
+    // The getLearningRate function calculates the learning rate for a given state and action in the Q-table. It retrieves the number of times the specified action has been visited in the given state and returns the learning rate as the reciprocal of the maximum between 1 and the visit count. This ensures that the learning rate decreases as the action is visited more frequently, allowing for more stable learning over time.
     double QTableManager::getLearningRate(int state, double action)
     {
         int n = Q_table[state].visit_counts[action];
